@@ -1,6 +1,6 @@
 # Covid 19 Statistic
 
-Find statistics by country on incidence Covid 19
+Find statistics by country on incidence Covid 19. Build with Next.js
 
 ## Used Technologies:
 
@@ -8,6 +8,7 @@ Find statistics by country on incidence Covid 19
 - React, React-router-dom
 - React Hooks
 - Styled components
+- React Spinners
 
 ## Requirements
 

@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState } from 'react';
 import { useGetCountries } from '../hooks/hooks';
+import { CountryData } from './CountryData';
 import styled from 'styled-components';
 import Image from 'next/image';
 
@@ -13,8 +14,7 @@ const Container = styled.div`
     .form {
         width: 210px;
         min-height: 26px;
-        border: 1px solid #ccc;
-        margin-bottom: 10px;
+        border: 1px solid #ccc;        
         padding: 5px;
         font-size: 16px;
     } 
@@ -30,10 +30,15 @@ const Container = styled.div`
 
 export const Countries = () => {
     const [country, setCountry] = useState('');
+    const [countrySelected, setCountrySelected] = useState('');
     const [countryOptions, setCountryOptions] = useState([]);
     const { data: countries } = useGetCountries();
 
-    /* handleClick = (name) => { }; */
+    const handleClick = (name) => {
+        setCountry(name);
+        setCountryOptions([]);
+        setCountrySelected(name);
+    };
 
     const handleInput = (e) => {
         if (e.target.value) {
@@ -58,6 +63,7 @@ export const Countries = () => {
         ) : null;
     };
 
+
     return (
         <Container>
             <div className='form'>
@@ -71,6 +77,8 @@ export const Countries = () => {
                     </div>
                 )}
             </div>
+
+            {countrySelected && <CountryData country={countrySelected} />}
         </Container>
     );
 };
