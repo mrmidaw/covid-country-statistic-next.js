@@ -1,4 +1,3 @@
 module.exports = {
-  reactStrictMode: true,
-  semi: true,
+  reactStrictMode: true
 };
