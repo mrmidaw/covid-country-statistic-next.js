@@ -33,7 +33,7 @@ export const Countries = () => {
     const renderCountry = (flagUrl, name, id) => {
         return flagUrl ? (
             <div
-                className='p-1 h-16 w-14 cursor-pointer ml-8 mt-4'
+                className='p-1 h-16 w-14 cursor-pointer ml-3 mt-4'
                 key={id}
                 onClick={() => handleClick(name)}
             >
@@ -45,11 +45,11 @@ export const Countries = () => {
 
 
     return (
-        <div className='grid grid-cols-2 gap-4 mx-4 mt-4 h-auto '>
+        <div className='grid grid-cols-2 gap-4 mx-4 mt-4 h-auto justify-items-center '>
             <div className='grid justify-items-center h-20'>
                 <h2 className='font-bold text-xl'> Countries </h2>
                 <input
-                    className=' grid text-center border-2 border-black font-medium text-lg'
+                    className=' w-40 text-center border-2 border-black font-medium text-lg'
                     type='text'
                     value={country}
                     onChange={handleInput}

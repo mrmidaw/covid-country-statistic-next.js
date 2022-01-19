@@ -15,7 +15,7 @@ export const CountryData = ({ country }) => {
         <div className=''>
             {error &&
                 <p
-                    className='text-3xl font-semibold text-red-600 absolute'>
+                    className='text-3xl font-semibold text-red-600 absolute grid justify-items-center'>
                     Error...
                 </p>
             }
@@ -23,7 +23,7 @@ export const CountryData = ({ country }) => {
             {loading && <Spinner />}
 
             {data && !!Object.keys(data).length && !error && !loading && (
-                <>
+                <div className='grid justify-items-center'>
                     <h2 className='font-bold text-xl'>COVID-19 Statistic</h2>
                     <div className='grid grid-rows-2 m-1'>
                         <p>
@@ -38,7 +38,7 @@ export const CountryData = ({ country }) => {
                             </span>
                         </p>
                     </div>
-                </>
+                </div>
             )}
         </div>
     );
