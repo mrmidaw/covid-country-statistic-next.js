@@ -3,8 +3,8 @@ import ClipLoader from "react-spinners/ClipLoader";
 
 export const Spinner = () => {
     return (
-        <div className='loadingSpinnerContainer'>
-            <ClipLoader size={12} />
+        <div className=''>
+            <ClipLoader size={30} />
         </div>
     );
 };

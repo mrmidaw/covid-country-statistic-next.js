@@ -8,6 +8,7 @@ Find statistics by country on incidence Covid 19. Build with Next.js
 - React, React-router-dom
 - React Hooks
 - Styled components
+- Tailwind CSS
 - React Spinners
 
 ## Requirements

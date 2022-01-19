@@ -1,32 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
 import { useGetStats } from '../hooks/hooks';
 import { Spinner } from './Spinner';
 
-const Container = styled.div`
-    width: 326px;
-    height: 78px;
-    position: relative;
-    .message {
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        margin: 0;
-        font-size: 30px;
-        color: #26c281;
-    }
-    .error {
-        color: red;
-    }
-    .stats {
-        display: flex;
-        p {
-            display: flex;
-            flex-direction:column;
-            margin: 0 10px 0 0;
-        }
-    }
-`;
 
 const editNumbers = (country) => {
     return country.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -37,30 +12,34 @@ export const CountryData = ({ country }) => {
 
 
     return (
-        <Container>
-            {error && <p className='message error'>Error...</p>}
+        <div className=''>
+            {error &&
+                <p
+                    className='text-3xl font-semibold text-red-600 absolute'>
+                    Error...
+                </p>
+            }
+
             {loading && <Spinner />}
 
             {data && !!Object.keys(data).length && !error && !loading && (
                 <>
-                    <h2>COVID-19 Cases Statistic</h2>
-                    <div className='stats'>
+                    <h2 className='font-bold text-xl'>COVID-19 Statistic</h2>
+                    <div className='grid grid-rows-2 m-1'>
                         <p>
-                            <span>
-                                Confirmed
+                            <span className='font-medium text-lg'>
+                                Confirmed - {editNumbers(data.confirmed.value)}
                             </span>
-                            {editNumbers(data.confirmed.value)}
                         </p>
 
                         <p>
-                            <span>
-                                Deaths
+                            <span className='font-medium text-lg' >
+                                Deaths - {editNumbers(data.deaths.value)}
                             </span>
-                            {editNumbers(data.deaths.value)}
                         </p>
                     </div>
                 </>
             )}
-        </Container>
+        </div>
     );
 };
