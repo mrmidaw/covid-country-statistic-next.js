@@ -12,7 +12,7 @@ interface ICountryDataProps {
 };
 
 export const CountryData: FC<ICountryDataProps> = ({ country }) => {
-    const { data, error, loading } = useGetStats(country);
+    const { data, error, loading }: any = useGetStats(country);
 
 
     return (
