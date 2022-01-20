@@ -21,14 +21,15 @@ export const useGetCountries = () => {
 };
 
 
-export const useGetStats = (country) => {
+export const useGetStats = (country: string) => {
     const [data, setData] = useState({});
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
 
+    // Pause for loading
     const pause = () => {
         return new Promise((resolve, reject) => {
-            setTimeout(resolve, 1200);
+            setTimeout(resolve, 1000);
         });
     };
 
@@ -41,7 +42,7 @@ export const useGetStats = (country) => {
 
             const response = await fetch(`https://covid19.mathdro.id/api/countries/${country}`)
                 .then(res => res.json())
-                .catch(err => console(err));
+                .catch(err => console.log(err));
 
 
             if (!response.error) {

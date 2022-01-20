@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useGetStats } from '../hooks/hooks';
 import { Spinner } from './Spinner';
 
-
-const editNumbers = (country) => {
+// Function to place commas after three digits
+const editNumbers = (country: string) => {
     return country.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 };
 
-export const CountryData = ({ country }) => {
+interface ICountryDataProps {
+    country: string;
+};
+
+export const CountryData: FC<ICountryDataProps> = ({ country }) => {
     const { data, error, loading } = useGetStats(country);
 
 
@@ -28,13 +32,13 @@ export const CountryData = ({ country }) => {
                     <div className='grid grid-rows-2 m-1'>
                         <p>
                             <span className='font-medium text-lg'>
-                                Confirmed - {editNumbers(data.confirmed.value)}
+                                Confirmed - {editNumbers(data.confirmed.value)} cases.
                             </span>
                         </p>
 
                         <p>
                             <span className='font-medium text-lg' >
-                                Deaths - {editNumbers(data.deaths.value)}
+                                Deaths - {editNumbers(data.deaths.value)} cases.
                             </span>
                         </p>
                     </div>
